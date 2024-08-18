@@ -10,3 +10,7 @@ These are configuration files, for my Neovim setup. It has the following Plugins
 6. undotree.lua: [It](https://github.com/mbbill/undotree) is the best plugin ever created. How was the world even functioning without this?
 
 (I don't need an LSP because I am a **CHAD**, _and also because I want to practise coding without code completion._)
+
+Demo Video
+---
+[![Watch Demo Video](https://i.ytimg.com/vi/ZoybIXiUiH8/hqdefault.jpg?sqp=-oaymwEmCOADEOgC8quKqQMa8AEB-AHSBoAC4AOKAgwIABABGH8gPSgzMA8=&rs=AOn4CLC1-72unq-Uqc9o-qVU3qGSYK64xA)](https://www.youtube.com/watch?v=ZoybIXiUiH8)
