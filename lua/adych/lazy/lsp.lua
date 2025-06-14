@@ -57,7 +57,7 @@ return {
                                                 settings = {
                                                         python = {
                                                                 analysis = {
-                                                                        typeCheckingMode = "off",
+                                                                        typeCheckingMode = "basic",
                                                                         autoSearchPaths = true,
                                                                         useLibraryCodeForTypes = true,
                                                                 },
@@ -94,6 +94,7 @@ return {
 
                 vim.diagnostic.config({
                         -- update_in_insert = true,
+                        virtual_text = true,
                         float = {
                                 focusable = false,
                                 style = "minimal",

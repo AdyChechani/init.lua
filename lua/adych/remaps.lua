@@ -44,20 +44,26 @@ vim.keymap.set("v", "p", '"_dP', { noremap = true, silent = true })
 vim.keymap.set("n", "<C-Backspace>", "db")
 
 local prev_buffer = nil
-vim.keymap.set('n', '<leader>d', function()
+vim.keymap.set("n", "<leader>d", function()
         prev_buffer = vim.api.nvim_get_current_buf()
-        local todo_path = vim.fn.expand('~/.dotfiles/personal/todo.md')
-        local dir = vim.fn.fnamemodify(todo_path, ':h')
-        if vim.fn.isdirectory(dir) == 0 then
-                vim.fn.mkdir(dir, 'p')
+        local local_path = vim.fn.findfile("TODO.md", ".;")
+        local target_path
+        if local_path ~= "" then
+                target_path = local_path
+        else
+                target_path = vim.fn.expand("~/.dotfiles/personal/todo.md")
+                local dir = vim.fn.fnamemodify(target_path, ":h")
+                if vim.fn.isdirectory(dir) == 0 then
+                        vim.fn.mkdir(dir, "p")
+                end
         end
-        vim.cmd('edit ' .. todo_path)
+        vim.cmd("edit " .. target_path)
 end)
-vim.keymap.set('n', '<leader>bd', function()
+vim.keymap.set("n", "<leader>bd", function()
         if prev_buffer and vim.api.nvim_buf_is_valid(prev_buffer) then
                 vim.api.nvim_set_current_buf(prev_buffer)
         else
-                print('No previous buffer available')
+                print("No previous buffer available")
         end
 end)
 
@@ -76,6 +82,11 @@ vim.api.nvim_set_keymap("n", "<C-l>", "<C-w>l", { noremap = true, silent = true 
 
 vim.api.nvim_set_keymap("n", "<leader>sh", ":split<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>sv", ":vsplit<CR>", { noremap = true, silent = true })
+
+vim.keymap.set("n", "<leader><Down>", ":resize +8<CR>", { silent = true, desc = "Increase height" })
+vim.keymap.set("n", "<leader><Up>", ":resize -8<CR>", { silent = true, desc = "Decrease height" })
+vim.keymap.set("n", "<leader><Right>", ":vertical resize -8<CR>", { silent = true, desc = "Decrease width" })
+vim.keymap.set("n", "<leader><Left>", ":vertical resize +8<CR>", { silent = true, desc = "Increase width" })
 
 -- nvim-tree
 vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
