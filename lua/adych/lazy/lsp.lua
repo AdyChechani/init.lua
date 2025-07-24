@@ -28,6 +28,7 @@ return {
                         ensure_installed = {
                                 "lua_ls",
                                 "pyright",
+                                "yamlls",
                         },
                         handlers = {
                                 function(server_name) -- default handler (optional)
@@ -61,6 +62,25 @@ return {
                                                                         autoSearchPaths = true,
                                                                         useLibraryCodeForTypes = true,
                                                                 },
+                                                        },
+                                                },
+                                        })
+                                end,
+
+                                ["yamlls"] = function ()
+                                        local lspconfig = require("lspconfig")
+                                        lspconfig.yamlls.setup({
+                                                settings = {
+                                                        yaml = {
+                                                                schemastore = {
+                                                                        enable = false,
+                                                                        url = "",
+                                                                },
+                                                                format = {
+                                                                        enable = true,
+                                                                },
+                                                                validate = true,
+                                                                keyOrdering = false,
                                                         },
                                                 },
                                         })

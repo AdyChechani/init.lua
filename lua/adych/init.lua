@@ -36,6 +36,25 @@ autocmd({"BufWritePre"}, {
         command = [[%s/\s\+$//e]],
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+        pattern = "yaml",
+        callback = function ()
+                vim.opt_local.tabstop = 2
+                vim.opt_local.softtabstop = 2
+                vim.opt_local.shiftwidth = 2
+                vim.opt_local.expandtab = true
+        end,
+})
+
+-- -- Format Python files with black on save
+-- vim.api.nvim_create_autocmd("BufWritePre", {
+--         pattern = "*.py",
+--         callback = function()
+--                 vim.fn.system("black " .. vim.fn.expand("%"))
+--                 vim.cmd("edit!")
+--         end,
+-- })
+
 autocmd('LspAttach', {
         group = AdychGroup,
         callback = function(e)
