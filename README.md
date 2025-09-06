@@ -3,3 +3,4 @@
 Prerequisites:
 1. [ripgrep](https://github.com/BurntSushi/ripgrep)
 2. undo directory to store all the undo's: `mkdir ~/.vim/undodir`
+3. Mason requires [node](https://nodejs.org/en/download/) to manage some LSP servers.
