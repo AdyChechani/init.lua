@@ -41,6 +41,13 @@ return require("packer").startup(function(use)
                 requires = { "nvim-tree/nvim-web-devicons" },
         }
 
+        -- Markdown Preview
+        use {
+                "OXY2DEV/markview.nvim",
+                lazy=false
+        }
+
+
         use {
                 "VonHeikemen/lsp-zero.nvim",
                 branch = "v1.x",
